@@ -1,0 +1,12 @@
+<#
+    .Description
+    This powershell script is used to replace FIRST "," (comma) to ";" (SEMI-COMMA), and THEN, WHEN FINISHED THAT it will replace "." (DOT/FULL STOP) to "," (COMMA).
+#>
+
+
+$filepath = "old_file.csv"
+ $newfilepath = "new_file.csv"
+
+ (Get-Content $filepath ) | ForEach-Object {
+    $_.replace(',', ';').replace('.', ',')
+ } | Set-Content $newfilepath
